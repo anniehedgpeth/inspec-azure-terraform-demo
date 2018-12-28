@@ -42,7 +42,7 @@ tenant_id = "REPLACE-WITH-YOUR-TENANT-ID"
 4. From the command line of your choice, run these commands from this repository's directory.
 
 ```
-$ terraform plan # then enter the Azure variables for your service principal
+$ terraform plan
 ```
 
 When you run this command, Terraform is comparing what is in the tfstate file, .tf files, and the Azure subscription to see what needs to be created or changed. If this succeeds, then you can run this to provision the resources:
@@ -83,4 +83,10 @@ Target:  azure://[hidden]
 
 Profile Summary: 3 successful controls, 0 control failures, 0 controls skipped
 Test Summary: 10 successful, 0 failures, 0 skipped
+```
+
+5. After you are finished, don't forget to destroy the resources you just created with:
+
+```
+$ terraform destroy
 ```
