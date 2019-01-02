@@ -53,7 +53,7 @@ $ terraform apply
 
 The very last resource in this Terraform script (vm.tf) is a command to run the InSpec profile that exists [here](https://github.com/anniehedgpeth/inspec-azure-demo).
 
-Your output will likely look like the following, mostly failures with a few passing tests:
+Your output will likely look like the following:
 
 ```
 Profile: InSpec Azure Demo (inspec-azure-demo)
