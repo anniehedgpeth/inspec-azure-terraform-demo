@@ -60,9 +60,9 @@ Profile: InSpec Azure Demo (inspec-azure-demo)
 Version: 0.1.0
 Target:  azure://[hidden]
 
-  ✔  azurerm_virtual_machine: 'my-vm' Virtual Machine
-     ✔  'my-vm' Virtual Machine should exist
-     ✔  'my-vm' Virtual Machine type should eq "Microsoft.Compute/virtualMachines"
+  ✔  azurerm_virtual_machine: 'my_vm' Virtual Machine
+     ✔  'my_vm' Virtual Machine should exist
+     ✔  'my_vm' Virtual Machine type should eq "Microsoft.Compute/virtualMachines"
   ✔  azure_network_security_group: 'nsg' Network Security Group
      ✔  'nsg' Network Security Group should exist
      ✔  'nsg' Network Security Group should not allow rdp from internet
@@ -70,9 +70,9 @@ Target:  azure://[hidden]
      ✔  'nsg' Network Security Group type should eq "Microsoft.Network/networkSecurityGroups"
      ✔  'nsg' Network Security Group security_rules should not be empty
      ✔  'nsg' Network Security Group default_security_rules should not be empty
-  ✔  azure_virtual_network: 'my-network' Virtual Network
-     ✔  'my-network' Virtual Network should exist
-     ✔  'my-network' Virtual Network location should eq "centralus"
+  ✔  azure_virtual_network: 'my_network' Virtual Network
+     ✔  'my_network' Virtual Network should exist
+     ✔  'my_network' Virtual Network location should eq "centralus"
 
 
 Profile: Azure Resource Pack (inspec-azure)

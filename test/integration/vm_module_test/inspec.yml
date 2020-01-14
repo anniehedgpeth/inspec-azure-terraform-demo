@@ -1,0 +1,15 @@
+---
+name: demo-vm-test
+title: Demo VM Profile
+maintainer: Annie Hedgpeth
+copyright: Annie Hedgpeth
+copyright_email: annie.hedgpeth@gmail.com
+license: Proprietary, All rights reserved
+summary: Verify that all resources in vm_module are created and that the vm is configured properly
+version: 0.1.0
+depends:
+  - inspec-azure:
+    git: https://github.com/inspec/inspec-azure.git
+supports:
+  - platform: azure
+  - os-family: linux

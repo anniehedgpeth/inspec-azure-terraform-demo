@@ -1,3 +1,37 @@
+# Compiled files
+*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info
+
+# logs
+*.log
+
+# Directories
+.terraform/
+.vagrant/
+
+# SSH Keys
+*.pem
+
+# Backup files
+*.bak
+
+# Ignored Terraform files
+*gitignore*.tf
+
+# Ignore Mac .DS_Store files
+.DS_Store
+
+
+
 *.tfvars
 *.tfstate*
 lock.json
+.terraform/*
+Demo-Notes.md
+.kitchen/*
+*/test/fixtures/*/.terraform/modules/*
+Gemfile.lock
+modules.json
+.terraform/plugins/darwin_amd64/terraform-provider-azurerm_v1.20.0_x4
+.terraform/plugins/darwin_amd64/terraform-provider-azurerm_v1.20.0_x4

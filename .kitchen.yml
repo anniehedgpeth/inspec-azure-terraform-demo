@@ -1,0 +1,29 @@
+driver:
+  name: terraform
+  root_module_directory: test/fixtures/vm_module_test
+  command_timeout: 1200
+
+provisioner:
+  name: terraform
+
+verifier:
+  name: terraform
+  systems:
+    - name: vm
+      backend: ssh
+      port: 22
+      hosts_output: vm_public_ip_address
+      user: tkuser
+      password: N0tS3cur3
+      controls:
+        - vm config
+    - name: azure
+      backend: azure
+      controls:
+        - resources
+
+platforms:
+  - name: terraform
+
+suites:
+  - name: vm_module_test
