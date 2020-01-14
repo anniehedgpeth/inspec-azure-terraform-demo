@@ -5,7 +5,10 @@ https://github.com/inspec/inspec-azure
 https://github.com/newcontext-oss/kitchen-terraform
 
 Slides:
-https://www.slideshare.net/AnnieHedgpeth/terraform-testing-with-inspec-demo 
+https://www.slideshare.net/AnnieHedgpeth/terraform-testing-with-inspec-demo
+
+Blog post on which talk was based:
+http://www.anniehedgie.com/kitchen-terraform-and-inspec
 
 ## Prerequisites
 
