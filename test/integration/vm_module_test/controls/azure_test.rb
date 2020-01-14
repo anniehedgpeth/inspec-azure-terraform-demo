@@ -1,5 +1,5 @@
 control 'resources' do
-  resource_group = 'test-kitchen2'
+  resource_group = 'test-kitchen'
 
   describe azurerm_virtual_machine(resource_group: resource_group, name: 'my_vm') do
     it                                { should exist }

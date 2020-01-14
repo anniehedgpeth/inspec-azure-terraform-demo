@@ -108,5 +108,5 @@ resource "azurerm_network_security_rule" "ssh" {
 
 # Problems:
 #  - The resources might not be finished provisioning in time for the tests.
-#  - You need separate resources for each InSpec session (i.e. vm or subscription).
+#  - You need separate commands for each InSpec session (i.e. vm or subscription).
 #  - If you're developing, then it's cumbersome
