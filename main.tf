@@ -1,4 +1,7 @@
-provider "azurerm" {}
+provider "azurerm" {
+  version = ">=1.35.0"
+ features {}
+}
 
 resource "azurerm_resource_group" "my_rg" {
   name     = var.resource_group

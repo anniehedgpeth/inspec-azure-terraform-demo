@@ -12,11 +12,12 @@ http://www.anniehedgie.com/kitchen-terraform-and-inspec
 
 ## Prerequisites
 
- - InSpec is [installed](https://www.inspec.io/downloads/)
+ - InSpec is [installed](https://www.inspec.io/downloads/) (skip this if using Bundler to install gem dependencies)
  - an Azure service principal with contributor rights
- - a .azure/credentials file in your home directory (see ["SETTING UP THE AZURE CREDENTIALS FILE"](https://www.inspec.io/docs/reference/platforms/))
  - Terraform [installed](https://www.terraform.io/downloads.html)
- - kitchen-terraform gem is installed
+ - `kitchen-terraform` gem is installed (skip this if using Bundler to install gem dependencies)
+ - `bundler` gem is installed
+ - `az cli` is installed
 
 ## Why would I need this:
 In order to validate Azure resources, we can use the inspec-azure gem to run automated tests against Azure. When we're automating provisioning through Terraform, we can add this InSpec validation onto the end of our Terraform run.
@@ -30,7 +31,7 @@ In order to validate Azure resources, we can use the inspec-azure gem to run aut
 
 With Test Kitchen, we're just going to create a few resources inside a resource group in Azure on  your subscription, and then we'll validate that what we wanted to be created actually got created. (The tests in this InSpec profile are expected to pass.)
 
-1. Log into Azure via Azure CLI or Azure Powershell using your Azure service principal.
+1. Change the values in either the `.envrc.sh` for Mac or Linux or `.envrc.ps1` for Windows using your Azure service principal values and run it.
 
 2. Clone this repository on your workstation.
 
@@ -38,31 +39,23 @@ With Test Kitchen, we're just going to create a few resources inside a resource 
 git clone https://github.com/anniehedgpeth/inspec-azure-terraform-demo.git
 ```
 
-3. In this directory AND `test/fixtures/vm_module/test`, create a `terraform.tfvars` file that has the following in it with your service principal values:
-
-```
-subscription_id = "REPLACE-WITH-YOUR-SUBSCIPRTION-ID"
-client_id = "REPLACE-WITH-YOUR-CLIENT-ID"
-client_secret = "REPLACE-WITH-YOUR-CLIENT-SECRET"
-tenant_id = "REPLACE-WITH-YOUR-TENANT-ID"
-```
-
 4. From the command line of your choice, run these commands from this repository's directory.
 
 ```
-$ kitchen create
+$ bundle install
+$ bundle exec kitchen create
 ```
 
-When you run this command, it runs `terraform init` under the hood. The path for the module for which you're running Terraform is directed to separated wrapper module nested in `test/fixtures`.
+When you run this command, it runs `terraform init` and `terraform workspace select` under the hood. The path for the module for which you're running Terraform is directed to separated wrapper module nested in `test/fixtures`.
 
 ```
-$ kitchen converge
+$ bundle exec kitchen converge
 ```
 
 When you run this command, it runs `terraform plan` and `terraform apply` under the hood.
 
 ```
-$ kitchen verify
+$ bundle exec kitchen verify
 ```
 
 When you run this command, it runs `inspec exec` against the Azure subscription and IP address under the hood.
@@ -118,7 +111,7 @@ Test Summary: 9 successful, 0 failures, 0 skipped
 5. After you are finished, don't forget to destroy the resources you just created with:
 
 ```
-$ kitchen destroy
+$ bundle exec kitchen destroy
 ```
 
 This runs `terraform destroy` under the hood, and only destroys the resources in your .tfstate file created for your Test Kitchen module.
